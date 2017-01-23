@@ -1,6 +1,6 @@
 {
   "name": "hrsf52-mvp",
-  "version": "",
+  "version": "1.0.0",
   "description": "A tool for Hearthstone CCG players to build decks and compare mechanics.",
   "author": "Andrew Regal <andrew.regal@gmail.com>",
   "license": "UNLICENSED",
@@ -8,6 +8,5 @@
   "engines": {
     "node": ">=4.0.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
