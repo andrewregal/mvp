@@ -8,5 +8,8 @@
   "engines": {
     "node": ">=4.0.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "angular": "^1.6.1",
+    "angular-route": "^1.6.1"
+  }
 }
