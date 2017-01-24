@@ -7,16 +7,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.js"></script>
     <script src="app/app.js"></script>
     <script src="app/ChooseClass/ChooseClass.js"></script>
+    <script src="app/DeckBuilder/DeckBuilder.js"></script>
+    <link href="styles/styles.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <div>
       <h1>Hearthstone Deck Builder</h1>
 
       <div ng-view></div>
-
-      <pre>
-        {{ test }}
-      </pre>
     </div>
+
+    <pre>
+      {{ getClass() }}
+    </pre>
   </body>
 </html>
