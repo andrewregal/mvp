@@ -1,4 +1,11 @@
-angular.module('hsd', [])
-.controller('hsdController', function ($scope) {
-  $scope.test = 'Data Goes Here';
+angular.module('hdb', [
+  'ngRoute',
+  'hdb.chooseClass'
+])
+.config(function($routeProvider) {
+  $routeProvider
+  .when('/', {
+    templateUrl: 'app/ChooseClass/ChooseClass.html',
+    controller: 'ChooseClassController'
+  });
 });

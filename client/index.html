@@ -1,14 +1,19 @@
 <!DOCTYPE html>
-<html ng-app="hsd">
+<html ng-app="hdb">
   <head>
     <title>Hearthstone Deck Builder</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.js"></script>
     <script src="app/app.js"></script>
+    <script src="app/ChooseClass/ChooseClass.js"></script>
   </head>
   <body>
-    <div ng-controller="hsdController">
+    <div>
       <h1>Hearthstone Deck Builder</h1>
+
+      <div ng-view></div>
+
       <pre>
         {{ test }}
       </pre>

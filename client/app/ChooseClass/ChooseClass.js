@@ -1,1 +1,4 @@
-angular.module('hdb.chooseClass', []);
+angular.module('hdb.chooseClass', [])
+.controller('ChooseClassController', function() {
+
+});
