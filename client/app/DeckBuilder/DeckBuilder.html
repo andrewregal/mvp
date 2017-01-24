@@ -16,7 +16,7 @@
     <p>Deck Size: {{ deckList.size }} / 30</p>
     <ul>
       <li ng-repeat="card in deckList.cards track by $index">
-        <span>({{ card.cost }}) - {{ card.name }} x{{ card.cardCount }}</span>
+        <span ng-click="deckListClicked(card)">({{ card.cost }}) - {{ card.name }} x{{ card.cardCount }}</span>
       </li>
       <button class="resetButton" type="button"><a href="/client/">Reset</a></button>
     </ul>

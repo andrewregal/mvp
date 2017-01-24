@@ -37,6 +37,18 @@ angular.module('hdb.deckBuilder', [])
     }
   };
 
+  $scope.deckListClicked = function(item) {
+    for (var j = 0; j < $scope.deckList.cards.length; j++) {
+      if ($scope.deckList.cards[j].name === item.name) {
+        $scope.deckList.cards[j].cardCount--;
+        if ($scope.deckList.cards[j].cardCount === 0) {
+          $scope.deckList.cards.splice(j, 1);
+        }
+      }
+    }
+    $scope.deckList.size--;
+  };
+
   $scope.fetch = function() {
     $http.get('https://omgvamp-hearthstone-v1.p.mashape.com/cards/classes/' + ChooseClass.getClass() + '?collectible=1', config)
     .then(function(results) {
