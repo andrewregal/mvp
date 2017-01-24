@@ -22,6 +22,22 @@ angular.module('hdb.deckBuilder', [])
     6: 0,
     7: 0 // 7 or more under same category
   };
+  $scope.content = ChooseClass.getClass();
+  $scope.showClassCards = true;
+  $scope.showNeutralCards = false;
+  $scope.neutralCards = [];
+
+  $scope.changeView = function() {
+    if ($scope.content === $scope.currentClass) {
+      $scope.content = 'Neutral';
+      $scope.showClassCards = false;
+      $scope.showNeutralCards = true;
+    } else if ($scope.content === 'Neutral') {
+      $scope.content = ChooseClass.getClass();
+      $scope.showClassCards = true;
+      $scope.showNeutralCards = false;
+    }
+  };
 
   $scope.itemClicked = function(item) {
     $scope.deckList.size = $scope.deckList.size || 0;
@@ -99,6 +115,15 @@ angular.module('hdb.deckBuilder', [])
     });
   };
 
+  $scope.fetchNeutral = function() {
+    $http.get('https://omgvamp-hearthstone-v1.p.mashape.com/cards/classes/Neutral?collectible=1', config)
+    .then(function(results) {
+      results.data.forEach(function (card) {
+        $scope.neutralCards.push(card);
+      });
+    });
+  };
+
   $scope.sortCards = function() {
     $scope.deckList.cards.sort(function(a, b) {
       if (a.cost === b.cost) {
@@ -122,5 +147,6 @@ angular.module('hdb.deckBuilder', [])
 
   if (ChooseClass.getClass() !== '') {
     $scope.fetch();
+    $scope.fetchNeutral();
   }
 });

@@ -1,7 +1,5 @@
 <div id="DeckBuilder">
-  <h2 class="test">Build Your Deck, {{currentClass}}</h2>
-
-  <div class="col-md-8 well well-sm mainside">
+  <div class="col-md-9 mainside" ng-show="showClassCards">
     <ul class="CardSelector">
       <li ng-repeat="card in cards">
         <span ng-click="itemClicked(card)">
@@ -11,14 +9,27 @@
     </ul>
   </div>
 
+  <div class="col-md-9 mainside" ng-show="showNeutralCards">
+    <ul class="CardSelector">
+      <li ng-repeat="card in neutralCards">
+        <span ng-click="itemClicked(card)">
+          <img class="cardProfile" ng-src="{{card.img}}" />
+        </span>
+      </li>
+    </ul>
+  </div>
+
   <div class="col-md-3 well well-sm sidebar">
-    <p>Deck Size: {{ deckList.size }} / 30</p>
+    <center><p>Deck Size: {{ deckList.size }} / 30</p></center>
     <ul>
       <li ng-repeat="card in deckList.cards track by $index">
         <span ng-click="deckListClicked(card)">({{ card.cost }}) - {{ card.name }} x{{ card.cardCount }}</span>
       </li>
       <br>
-      <button class="resetButton" type="button"><a href="/client/">Reset</a></button>
+      <a href="/"><button class="resetButton" type="button">Reset</button></a>
+      <button class="saveButton" type="button">Save</button>
+      <button class="loadButton" type="button">Load</button>
+      <button class="toggleView" type="button" ng-click="changeView()">Toggle Class / Neutral</button>
     </ul>
     <br>
 
