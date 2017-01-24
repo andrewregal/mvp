@@ -1,22 +1,20 @@
 <div id="DeckBuilder">
-  <h2 class="test">Build Your Deck</h2>
+  <h2 class="test">Build Your Deck, {{currentClass}}</h2>
 
   <div class="col-md-8 well well-sm">
-    <ul>
+    <ul class="CardSelector">
       <!-- All cards go here -->
       <li ng-repeat="card in cards">
-        <span ng-click="itemClicked(card)">{{ card }}</span>
+        <span ng-click="itemClicked(card.name)">
+          <img class="cardProfile" ng-src="{{card.img}}" />
+        </span>
       </li>
-      <!-- <li ng-model="string">Test</li>
-      <li ng-click="itemClicked(string)">{cardName}Angry Chicken</li>
-      <li ng-click="itemClicked(card)">Wisp</li>
-      <li ng-click="itemClicked(card)">Millhouse Manastorm</li> -->
     </ul>
   </div>
 
   <div class="col-md-4 well well-sm">
     <ul>
-      <li ng-repeat="card in deck">
+      <li ng-repeat="card in deck track by $index">
         <span>{{ card }}</span>
       </li>
       <button class="resetButton" type="button"><a href="/client/">Reset</a></button>

@@ -1,0 +1,15 @@
+.SiteTitle {
+  text-align: center;
+}
+
+.ClassSelector li {
+  display: inline-block;
+}
+
+.CardSelector li {
+  display: inline-block;
+}
+
+.cardProfile {
+  width: 200px
+}

@@ -1,6 +1,21 @@
-# hrsf52-mvp #
+ # hrsf52-mvp #
 
 <!--
+ _   _                      _    _            _                        
+( ) ( )                    ( )_ ( )          ( )_                      
+| |_| |   __     _ _  _ __ | ,_)| |__    ___ | ,_)   _     ___     __  
+|  _  | /'__`\ /'_` )( '__)| |  |  _ `\/',__)| |   /'_`\ /' _ `\ /'__`\
+| | | |(  ___/( (_| || |   | |_ | | | |\__, \| |_ ( (_) )| ( ) |(  ___/
+(_) (_)`\____)`\__,_)(_)   `\__)(_) (_)(____/`\__)`\___/'(_) (_)`\____)
+
+
+ ___                  _         ___              _        _              
+(  _`\               ( )       (  _`\         _ (_ )     ( )             
+| | ) |   __     ___ | |/')    | (_) ) _   _ (_) | |    _| |   __   _ __
+| | | ) /'__`\ /'___)| , <     |  _ <'( ) ( )| | | |  /'_` | /'__`\( '__)
+| |_) |(  ___/( (___ | |\`\    | (_) )| (_) || | | | ( (_| |(  ___/| |   
+(____/'`\____)`\____)(_) (_)   (____/'`\___/'(_)(___)`\__,_)`\____)(_)   
+
 > This material was originally posted [here](http://www.quora.com/What-is-Amazons-approach-to-product-development-and-product-management). It is reproduced here for posterities sake.
 
 There is an approach called "working backwards" that is widely used at Amazon. They work backwards from the customer, rather than starting with an idea for a product and trying to bolt customers onto it. While working backwards can be applied to any specific product decision, using this approach is especially important when developing new products or features.

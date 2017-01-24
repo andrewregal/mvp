@@ -23,8 +23,6 @@ angular.module('hdb', [
     userClass = classChosen;
   };
 
-
-
   return {
     getClass: getClass,
     setClass: setClass
