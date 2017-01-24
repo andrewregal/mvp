@@ -12,6 +12,16 @@ angular.module('hdb.deckBuilder', [])
   $scope.cards = [];
   $scope.deck = [];
   $scope.deckList = {};
+  $scope.costChart = {
+    0: 0,
+    1: 0,
+    2: 0,
+    3: 0,
+    4: 0,
+    5: 0,
+    6: 0,
+    7: 0 // 7 or more under same category
+  };
 
   $scope.itemClicked = function(item) {
     $scope.deckList.size = $scope.deckList.size || 0;
@@ -25,6 +35,11 @@ angular.module('hdb.deckBuilder', [])
           if ($scope.deckList.cards[i].rarity !== 'Legendary' && $scope.deckList.cards[i]['cardCount'] === 1) {
             $scope.deckList.cards[i]['cardCount']++;
             $scope.deckList.size++;
+            var insertCost = item.cost;
+            if (item.cost > 7) {
+              insertCost = 7;
+            }
+            $scope.costChart[insertCost]++;
           }
         }
       }
@@ -33,8 +48,14 @@ angular.module('hdb.deckBuilder', [])
         $scope.deckList.size++;
         item['cardCount'] = 1;
         $scope.deckList.cards.push(item);
+        var insertCost = item.cost;
+        if (item.cost > 7) {
+          insertCost = 7;
+        }
+        $scope.costChart[insertCost]++;
       }
     }
+    $scope.sortCards();
   };
 
   $scope.deckListClicked = function(item) {
@@ -47,6 +68,13 @@ angular.module('hdb.deckBuilder', [])
       }
     }
     $scope.deckList.size--;
+    var removeCost = item.cost;
+    if (item.cost > 7) {
+      removeCost = 7;
+    }
+    $scope.costChart[removeCost]--;
+
+    $scope.sortCards();
   };
 
   $scope.fetch = function() {
@@ -60,13 +88,34 @@ angular.module('hdb.deckBuilder', [])
       // remove hero portraits
       if (ChooseClass.getClass() === 'Rogue' || ChooseClass.getClass() === 'Druid' || ChooseClass.getClass() === 'Warlock') {
         $scope.cards.shift();
-      } else if (ChooseClass.getClass() === 'Hunter' || ChooseClass.getClass() === 'Paladin' || ChooseClass.getClass() === 'Priest' || ChooseClass.getClass() === 'Shaman') {
+      } else if (ChooseClass.getClass() === 'Hunter' || ChooseClass.getClass() === 'Paladin' || ChooseClass.getClass() === 'Priest' || ChooseClass.getClass() === 'Shaman' || ChooseClass.getClass() === 'Warrior') {
         $scope.cards.shift();
         $scope.cards.shift();
       } else if (ChooseClass.getClass() === 'Mage') {
         $scope.cards.shift();
         $scope.cards.shift();
         $scope.cards.shift();
+      }
+    });
+  };
+
+  $scope.sortCards = function() {
+    $scope.deckList.cards.sort(function(a, b) {
+      if (a.cost === b.cost) {
+        if (a.name < b.name) {
+          return -1;
+        } else if (a.name > b.name) {
+          return 1;
+        } else {
+          return 0;
+        }
+      }
+      if (a.cost < b.cost) {
+        return -1;
+      } else if (a.cost > b.cost) {
+        return 1;
+      } else {
+        return 0;
       }
     });
   };

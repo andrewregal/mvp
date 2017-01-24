@@ -3,7 +3,6 @@
 
   <div class="col-md-8 well well-sm mainside">
     <ul class="CardSelector">
-      <!-- All cards go here -->
       <li ng-repeat="card in cards">
         <span ng-click="itemClicked(card)">
           <img class="cardProfile" ng-src="{{card.img}}" />
@@ -18,8 +17,63 @@
       <li ng-repeat="card in deckList.cards track by $index">
         <span ng-click="deckListClicked(card)">({{ card.cost }}) - {{ card.name }} x{{ card.cardCount }}</span>
       </li>
+      <br>
       <button class="resetButton" type="button"><a href="/client/">Reset</a></button>
     </ul>
-  </div>
+    <br>
 
+    <div id="chart" text-align="center">
+      <svg width="300" height="240">
+
+        <g class="bar" fill="grey">
+          <rect width="{{costChart[0]*20}}" height="19" y="20"></rect>
+          <text x="{{(costChart[0]*20)-17}}" y="28" dy=".35em" fill="black">{{costChart[0]}}</text>
+          <text x="{{(costChart[0]*20)+5}}" y="28" dy=".35em">0 Cost</text>
+        </g>
+
+        <g class="bar" fill="grey">
+          <rect width="{{costChart[1]*20}}" height="19" y="40"></rect>
+          <text x="{{(costChart[1]*20)-17}}" y="48" dy=".35em" fill="black">{{costChart[1]}}</text>
+          <text x="{{(costChart[1]*20)+5}}" y="48" dy=".35em">1 Cost</text>
+        </g>
+
+        <g class="bar" fill="grey">
+          <rect width="{{costChart[2]*20}}" height="19" y="60"></rect>
+          <text x="{{(costChart[2]*20)-17}}" y="68" dy=".35em" fill="black">{{costChart[2]}}</text>
+          <text x="{{(costChart[2]*20)+5}}" y="68" dy=".35em">2 Cost</text>
+        </g>
+
+        <g class="bar" fill="grey">
+          <rect width="{{costChart[3]*20}}" height="19" y="80"></rect>
+          <text x="{{(costChart[3]*20)-17}}" y="88" dy=".35em" fill="black">{{costChart[3]}}</text>
+          <text x="{{(costChart[3]*20)+5}}" y="88" dy=".35em">3 Cost</text>
+        </g>
+
+        <g class="bar" fill="grey">
+          <rect width="{{costChart[4]*20}}" height="19" y="100"></rect>
+          <text x="{{(costChart[4]*20)-17}}" y="108" dy=".35em" fill="black">{{costChart[4]}}</text>
+          <text x="{{(costChart[4]*20)+5}}" y="108" dy=".35em">4 Cost</text>
+        </g>
+
+        <g class="bar" fill="grey">
+          <rect width="{{costChart[5]*20}}" height="19" y="120"></rect>
+          <text x="{{(costChart[5]*20)-17}}" y="128" dy=".35em" fill="black">{{costChart[5]}}</text>
+          <text x="{{(costChart[5]*20)+5}}" y="128" dy=".35em">5 Cost</text>
+        </g>
+
+        <g class="bar" fill="grey">
+          <rect width="{{costChart[6]*20}}" height="19" y="140"></rect>
+          <text x="{{(costChart[6]*20)-17}}" y="148" dy=".35em" fill="black">{{costChart[6]}}</text>
+          <text x="{{(costChart[6]*20)+5}}" y="148" dy=".35em">6 Cost</text>
+        </g>
+
+        <g class="bar" fill="grey">
+          <rect width="{{costChart[7]*20}}" height="19" y="160"></rect>
+          <text x="{{(costChart[7]*20)-17}}" y="168" dy=".35em" fill="black">{{costChart[7]}}</text>
+          <text x="{{(costChart[7]*20)+5}}" y="168" dy=".35em">7+ Cost</text>
+        </g>
+      </svg>
+    </div>
+
+  </div>
 </div>
