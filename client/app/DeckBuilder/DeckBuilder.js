@@ -8,17 +8,33 @@ var config = {
 angular.module('hdb.deckBuilder', [])
 .controller('DeckBuilderController', function($scope, $http, ChooseClass) {
 
-
-
   $scope.currentClass = ChooseClass.getClass();
-  // $scope.cards = ['Angry Chicken', 'Ragnaros the Firelord', 'Lorewalker Cho'];
   $scope.cards = [];
   $scope.deck = [];
-
-
+  $scope.deckList = {};
 
   $scope.itemClicked = function(item) {
-    $scope.deck.push(item);
+    $scope.deckList.size = $scope.deckList.size || 0;
+    $scope.deckList.cards = $scope.deckList.cards || [];
+
+    if ($scope.deckList.size < 30) {
+      var cardFound = false;
+      for (var i = 0; i < $scope.deckList.cards.length; i++) {
+        if ($scope.deckList.cards[i].name === item.name) {
+          cardFound = true;
+          if ($scope.deckList.cards[i].rarity !== 'Legendary' && $scope.deckList.cards[i]['cardCount'] === 1) {
+            $scope.deckList.cards[i]['cardCount']++;
+            $scope.deckList.size++;
+          }
+        }
+      }
+
+      if (!cardFound) {
+        $scope.deckList.size++;
+        item['cardCount'] = 1;
+        $scope.deckList.cards.push(item);
+      }
+    }
   };
 
   $scope.fetch = function() {
@@ -43,5 +59,7 @@ angular.module('hdb.deckBuilder', [])
     });
   };
 
-  $scope.fetch();
+  if (ChooseClass.getClass() !== '') {
+    $scope.fetch();
+  }
 });

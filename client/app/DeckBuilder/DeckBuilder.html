@@ -1,21 +1,22 @@
 <div id="DeckBuilder">
   <h2 class="test">Build Your Deck, {{currentClass}}</h2>
 
-  <div class="col-md-8 well well-sm">
+  <div class="col-md-8 well well-sm mainside">
     <ul class="CardSelector">
       <!-- All cards go here -->
       <li ng-repeat="card in cards">
-        <span ng-click="itemClicked(card.name)">
+        <span ng-click="itemClicked(card)">
           <img class="cardProfile" ng-src="{{card.img}}" />
         </span>
       </li>
     </ul>
   </div>
 
-  <div class="col-md-4 well well-sm">
+  <div class="col-md-3 well well-sm sidebar">
+    <p>Deck Size: {{ deckList.size }} / 30</p>
     <ul>
-      <li ng-repeat="card in deck track by $index">
-        <span>{{ card }}</span>
+      <li ng-repeat="card in deckList.cards track by $index">
+        <span>({{ card.cost }}) - {{ card.name }} x{{ card.cardCount }}</span>
       </li>
       <button class="resetButton" type="button"><a href="/client/">Reset</a></button>
     </ul>

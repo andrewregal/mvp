@@ -15,7 +15,7 @@ angular.module('hdb', [
   });
 })
 .factory('ChooseClass', function() {
-  var userClass = 'Test';
+  var userClass = '';
   var getClass = function() {
     return userClass;
   };

@@ -11,5 +11,14 @@
 }
 
 .cardProfile {
-  width: 200px
+  width: 145px
+}
+
+.sidebar {
+  position: fixed;
+  float: left;
+}
+
+.mainside {
+  float: right;
 }
