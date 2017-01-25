@@ -11,6 +11,3 @@ app.listen(8080, function () {
 app.get('/', function (req, res) {
   res.send(200);
 });
-
-
-module.exports = app;
